@@ -30,6 +30,9 @@ func SendBarkMessage(message *model.Message, user *model.User, channel_ *model.C
 	if message.Content == "" {
 		req.Body = message.Description
 	}
+	if message.URL != "" {
+		req.Body += "\n\n" + message.URL
+	}
 	reqBody, err := json.Marshal(req)
 	if err != nil {
 		return err
