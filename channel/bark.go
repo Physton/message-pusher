@@ -12,7 +12,7 @@ import (
 type barkMessageRequest struct {
 	Title string `json:"title"`
 	Body  string `json:"body"`
-	URL   string `json:"url"`
+	// URL   string `json:"url"`
 }
 
 type barkMessageResponse struct {
@@ -25,7 +25,7 @@ func SendBarkMessage(message *model.Message, user *model.User, channel_ *model.C
 	req := barkMessageRequest{
 		Title: message.Title,
 		Body:  message.Content,
-		URL:   message.URL,
+		// URL:   message.URL,
 	}
 	if message.Content == "" {
 		req.Body = message.Description
